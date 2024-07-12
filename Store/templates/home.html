@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{% block title %}Home{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <ul class="nav-bar">
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Categories</button>
+                    <div class="dropdown-content">
+                        {% for i in categories %}
+                            <a href="{% url 'cats' %}?q={{ i.name }}">{{ i.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    {% block mainPage %}
+        {% include "home_design.html" %}
+    {% endblock %}
+
+    {% block catPage %}
+    {% endblock %}
+
+    {% block cart %}
+    {% endblock %}
+    <section id="footer">
+        <div class="foot">
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="social-links">
+                <a href=""><i class="fab fa-linkedin">l</i></a>
+                <a href=""><i class="fab fa-instagram">i</i></a>
+                <a href=""><i class="fab fa-behance">b</i></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

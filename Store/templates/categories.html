@@ -1,0 +1,17 @@
+{% extends "home.html" %}
+{% load static %}
+{% block title %}{{ category }}{% endblock %}
+
+{% block catPage %}
+    <div class="product-grid" id="productGrid">
+        {% for i in productsByCategory %}
+            <div class="product-card">
+                <img src="{{ i.image.url }}" alt="{{ i.name }}">
+                <div class="product-info">
+                    <h3 class="product-title">{{ i.name }}</h3>
+                    <p class="product-price">{{ i.price }} Rs.</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

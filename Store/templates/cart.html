@@ -1,0 +1,37 @@
+{% extends "home.html" %}
+{% load static %}
+{% block mainPage %}{% endblock %}
+{% block title %}Cart{% endblock %}
+{% block cart %}
+    <div class="cart-container">
+        <h2 class = 'title'>Your Cart</h2>
+        {% if cart_items %}
+            {% for key, item in cart_items.items %}
+                <div class="cartItem">
+                    <div class="description">
+                        <span><h3>{{ item.name }}</h3></span>
+                        <span>A mouse with good quality</span>
+                    </div>
+
+                    <div class="quantity">
+                        <button class="minus-btn" type="button" name="button">-</button>
+                        <span> {{ item.quantity }} </span>
+                        <button class="plus-btn" type="button" name="button">+</button>
+                    </div>
+
+                    <div class="total-price">
+                        <h5 style="float: right; margin-right: 10px;">{{ item.totalPrice }} Rs</h5>
+                    </div>
+                </div>
+            {% endfor %}
+            <p style="margin: 20px 20px;"><strong>Total: {{ cart_total }} Rs</strong></p>
+            <!-- <a href="/checkout/">Proceed to Checkout</a> -->
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block catPage %}
+
+{% endblock %}

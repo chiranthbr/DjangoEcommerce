@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> {{title}} </title>
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        <div class="title">Register</div>
+        <div class="input-box underline">
+          <input type="text" placeholder="First Name" name="firstName" required>
+          <div class="underline"></div>
+        </div>
+        <div class="input-box underline">
+            <input type="text" placeholder="Last Name" name="lastName" required>
+            <div class="underline"></div>
+        </div>
+        <div class="input-box underline">
+            <input type="text" placeholder="Email" name="email" required>
+            <div class="underline"></div>
+        </div>
+        <div class="input-box underline">
+          <input type="number" placeholder="Phone" name="phone" required>
+          <div class="underline"></div>
+        </div>
+        <div class="input-box underline">
+            <input type="password" placeholder="Password" name="password" required>
+            <div class="underline"></div>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Enter Your Password" required>
+          <div class="underline"></div>
+        </div>
+        <br>
+        <p>Already have an account? login <a href="{% url 'login' %}">here</a></p>
+        <div class="input-box button">
+          <input type="submit" name="" value="Register">
+        </div>
+      </form>
+  </body>
+</html>
